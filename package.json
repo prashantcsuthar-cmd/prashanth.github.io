@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Prashanth C",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python3 -m http.server 5173",
+    "build": "echo 'Static site - no build needed'"
+  },
+  "keywords": [
+    "portfolio",
+    "ai",
+    "data-science"
+  ],
+  "author": "Prashanth C",
+  "license": "MIT"
+}

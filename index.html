@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prashanth C - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #ddd;
+        }
+
+        nav {
+            margin-top: 1rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #764ba2;
+        }
+
+        .hero {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            font-size: 1rem;
+        }
+
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info a:hover {
+            color: #764ba2;
+        }
+
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-category p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .tools {
+            background: #e8eaf6;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            color: #667eea;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .achievements {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .achievement-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .achievement-item h3 {
+            color: #764ba2;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .achievement-item p {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            section {
+                padding: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Prashanth C</h1>
+            <p>B.S. in Applied AI and Data Science Candidate | IIT Jodhpur</p>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#achievements">Achievements</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="hero" id="about">
+            <h2>Welcome to My Portfolio</h2>
+            <p>I'm a passionate AI and Data Science enthusiast currently pursuing my degree at IIT Jodhpur. With expertise in machine learning, data analysis, and generative AI, I'm dedicated to solving real-world problems through technology.</p>
+            <div class="contact-info">
+                <div>📞 <a href="tel:+919902798526">+91 9902798526</a></div>
+                <div>📧 <a href="mailto:prashantcsuthar@gmail.com">prashantcsuthar@gmail.com</a></div>
+                <div>💼 <a href="https://www.linkedin.com/in/prashanth-suthar-432965370/" target="_blank">LinkedIn</a></div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <p>C++, Python, HTML</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <p>English, Hindi</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Libraries & Frameworks</h3>
+                    <p>Pandas, NumPy, Matplotlib, Gradio, Scikit-learn, Seaborn</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Database & Concepts</h3>
+                    <p>MySQL, RDBMS, SQL, Data Modeling, CRUD Operations</p>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Development</h3>
+                    <p>Google Gemini API, Large Language Models (LLMs), Generative AI, Prompt Engineering, Agentic Workflows</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Titanic Dataset Survival Analysis</h3>
+                    <p>Executed comprehensive Exploratory Data Analysis (EDA) and cleaning on the Titanic dataset to identify factors influencing survival. Handled missing values, performed feature transformation, and managed outliers to ensure dataset readiness for predictive modeling.</p>
+                    <div class="tools">Tools: Python, Pandas, NumPy, Matplotlib, Seaborn</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Diabetes Prediction Model</h3>
+                    <p>Developed a Logistic Regression model to predict the onset of diabetes based on diagnostic measurements. Achieved approximately 74% testing accuracy with focus on dataset exploration and feature engineering to enhance model performance.</p>
+                    <div class="tools">Tools: Python, Scikit-learn, NumPy, Pandas</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Food Delivery Management System</h3>
+                    <p>Designed and modeled a relational database schema for a Food Delivery System managing customers, restaurants, and orders. Enforced data integrity using Foreign Key and Check constraints, and implemented core CRUD operations with complex JOIN queries.</p>
+                    <div class="tools">Tools: MySQL, SQL, RDBMS</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Customer Data Cleansing Script</h3>
+                    <p>Developed a SQL-based data sanitation workflow to improve customer record integrity. Utilized SQL string functions to normalize text formats and handled NULL values, resulting in a high-quality dataset optimized for business reporting.</p>
+                    <div class="tools">Tools: SQL, MySQL (DML, String Manipulation)</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements">
+            <h2>Key Achievements</h2>
+            <div class="achievements">
+                <div class="achievement-item">
+                    <h3>AI Agents Development - Google & Kaggle 5-Day Challenge</h3>
+                    <p>Developed autonomous AI agents capable of multi-step reasoning using the Google Gemini API. Implemented Function Calling to enable the agent to interact dynamically with external tools and environment states. Engineered structured System Instructions and ReAct workflows, resulting in a functional prototype deployed in the Kaggle cloud environment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">I'm always interested in hearing about new projects and opportunities. Feel free to reach out!</p>
+            <div class="contact-info" style="justify-content: center;">
+                <div>📞 <a href="tel:+919902798526">+91 9902798526</a></div>
+                <div>📧 <a href="mailto:prashantcsuthar@gmail.com">prashantcsuthar@gmail.com</a></div>
+                <div>💼 <a href="https://www.linkedin.com/in/prashanth-suthar-432965370/" target="_blank">LinkedIn Profile</a></div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Prashanth C. All rights reserved.</p>
+        <p>Portfolio built with HTML & CSS</p>
+    </footer>
+</body>
+</html>
