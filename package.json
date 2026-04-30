@@ -1,6 +1,6 @@
 {
   "name": "portfolio-site",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Professional portfolio website for Prashanth C",
   "main": "index.html",
   "scripts": {
@@ -13,7 +13,8 @@
     "data-science",
     "machine-learning",
     "spring-boot",
-    "web-design"
+    "web-design",
+    "glassmorphic"
   ],
   "author": "Prashanth C",
   "license": "MIT"
