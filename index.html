@@ -249,6 +249,7 @@
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
                 <a href="#achievements">Achievements</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -271,52 +272,65 @@
             <div class="skills-grid">
                 <div class="skill-category">
                     <h3>Programming Languages</h3>
-                    <p>C++, Python, HTML</p>
+                    <p>Python (Advanced), Java (Spring Boot), C++, SQL (MySQL), HTML</p>
                 </div>
                 <div class="skill-category">
-                    <h3>Languages</h3>
-                    <p>English, Hindi</p>
+                    <h3>Libraries, Frameworks & Tools</h3>
+                    <p>Tableau, Kafka, Spring Data JPA, Pandas, NumPy, Scikit-learn, Git, Maven, Gradio</p>
                 </div>
                 <div class="skill-category">
-                    <h3>Libraries & Frameworks</h3>
-                    <p>Pandas, NumPy, Matplotlib, Gradio, Scikit-learn, Seaborn</p>
+                    <h3>AI & Optimization</h3>
+                    <p>BFGS, Backtracking Line Search (Armijo), Gradient Descent, Neural Networks, Agentic Workflows, Gemini API</p>
                 </div>
                 <div class="skill-category">
                     <h3>Database & Concepts</h3>
-                    <p>MySQL, RDBMS, SQL, Data Modeling, CRUD Operations</p>
-                </div>
-                <div class="skill-category">
-                    <h3>AI & Development</h3>
-                    <p>Google Gemini API, Large Language Models (LLMs), Generative AI, Prompt Engineering, Agentic Workflows</p>
+                    <p>MySQL, RDBMS, SQL, Data Modeling, CRUD Operations, Large Language Models (LLMs)</p>
                 </div>
             </div>
         </section>
 
         <section id="projects">
-            <h2>Featured Projects</h2>
+            <h2>Core AI & Optimization Projects</h2>
             <div class="projects">
                 <div class="project-card">
-                    <h3>Titanic Dataset Survival Analysis</h3>
-                    <p>Executed comprehensive Exploratory Data Analysis (EDA) and cleaning on the Titanic dataset to identify factors influencing survival. Handled missing values, performed feature transformation, and managed outliers to ensure dataset readiness for predictive modeling.</p>
-                    <div class="tools">Tools: Python, Pandas, NumPy, Matplotlib, Seaborn</div>
+                    <h3>Numerical Optimization Showdown: GD vs. BFGS</h3>
+                    <p>Implemented Gradient Descent and BFGS to minimize the non-convex Rosenbrock function; BFGS achieved convergence in 95% fewer iterations than standard GD.</p>
+                    <div class="tools">Tools: Python, SciPy</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Predictive Modeling via Backtracking Gradient Descent</h3>
+                    <p>Engineered a salary prediction engine utilizing an automated Backtracking Line Search (Armijo condition) to dynamically optimize learning rates, ensuring stable convergence.</p>
+                    <div class="tools">Tools: Python, NumPy</div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Project LANA: Financial Market Dynamics Analysis</h3>
+                    <p>Modeled systemic shocks in banking networks; identified that middle-chain banks absorb 66% more stress during market volatility.</p>
+                    <div class="tools">Tools: Python, Linear Algebra</div>
                 </div>
 
                 <div class="project-card">
                     <h3>Diabetes Prediction Model</h3>
-                    <p>Developed a Logistic Regression model to predict the onset of diabetes based on diagnostic measurements. Achieved approximately 74% testing accuracy with focus on dataset exploration and feature engineering to enhance model performance.</p>
+                    <p>Developed a Logistic Regression model to forecast the onset of diabetes based on diagnostic measurements, achieving 74% accuracy.</p>
                     <div class="tools">Tools: Python, Scikit-learn, NumPy, Pandas</div>
                 </div>
-
+                
                 <div class="project-card">
                     <h3>Food Delivery Management System</h3>
-                    <p>Designed and modeled a relational database schema for a Food Delivery System managing customers, restaurants, and orders. Enforced data integrity using Foreign Key and Check constraints, and implemented core CRUD operations with complex JOIN queries.</p>
+                    <p>Designed RDBMS schema with complex JOIN queries for tracking multi-vendor spend data and enforcing data integrity.</p>
                     <div class="tools">Tools: MySQL, SQL, RDBMS</div>
                 </div>
+            </div>
+        </section>
 
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            <div class="projects">
                 <div class="project-card">
-                    <h3>Customer Data Cleansing Script</h3>
-                    <p>Developed a SQL-based data sanitation workflow to improve customer record integrity. Utilized SQL string functions to normalize text formats and handled NULL values, resulting in a high-quality dataset optimized for business reporting.</p>
-                    <div class="tools">Tools: SQL, MySQL (DML, String Manipulation)</div>
+                    <h3>JPMorgan Chase & Co. – Software Engineering Job Simulation</h3>
+                    <p>Architected REST endpoints for integrating external APIs, reducing processing time by 30%. Integrated Apache Kafka with a Spring Boot microservice to process high-volume transactions, increasing throughput by 25%. Optimized database query latency using Spring Data JPA and H2 SQL.</p>
+                    <div class="tools">Tools: Java, Spring Boot, Spring Data JPA, Kafka</div>
                 </div>
             </div>
         </section>
@@ -326,7 +340,11 @@
             <div class="achievements">
                 <div class="achievement-item">
                     <h3>AI Agents Development - Google & Kaggle 5-Day Challenge</h3>
-                    <p>Developed autonomous AI agents capable of multi-step reasoning using the Google Gemini API. Implemented Function Calling to enable the agent to interact dynamically with external tools and environment states. Engineered structured System Instructions and ReAct workflows, resulting in a functional prototype deployed in the Kaggle cloud environment.</p>
+                    <p>Engineered autonomous AI Agents using Function Calling and ReAct workflows, improving reasoning accuracy for multi-step tasks using the Google Gemini API.</p>
+                </div>
+                <div class="achievement-item">
+                    <h3>CS50 AI Certification</h3>
+                    <p>Earned the Introduction to Artificial Intelligence with Python certification from Harvard University via edX in 2026. Developed 12 AI projects using neural networks and NLP to achieve efficient search heuristics.</p>
                 </div>
             </div>
         </section>
@@ -343,7 +361,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Prashanth C. All rights reserved.</p>
+        <p>&copy; 2026 Prashanth C. All rights reserved.</p>
         <p>Portfolio built with HTML & CSS</p>
     </footer>
 </body>
