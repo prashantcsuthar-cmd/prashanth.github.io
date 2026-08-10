@@ -21,26 +21,3 @@ portfolio-site/
 ├── package.json        # Project metadata
 └── README.md          # This file
 ```
-
-## How to View
-
-### Local Development
-```bash
-# Start a simple HTTP server
-python3 -m http.server 5173
-
-# Then open http://localhost:5173 in your browser
-```
-
-### Online
-The portfolio is publicly available at the deployed URL.
-
-## Contact
-
-- **Phone**: +91 9902798526
-- **Email**: prashantcsuthar@gmail.com
-- **LinkedIn**: [Prashanth Suthar](https://www.linkedin.com/in/prashanth-suthar-432965370/)
-
-## License
-
-© 2024 Prashanth C. All rights reserved.
