@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashanth C | AI Engineer & Systems Architect</title>
+    <title>Prashanth C | AI & Systems Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-base: #030712;
-            --card-bg: rgba(15, 23, 42, 0.65);
-            --card-hover: rgba(30, 41, 59, 0.85);
+            --card-bg: rgba(15, 23, 42, 0.7);
+            --card-hover: rgba(30, 41, 59, 0.9);
             --border-subtle: rgba(255, 255, 255, 0.08);
-            --border-accent: rgba(99, 102, 241, 0.4);
+            --border-accent: rgba(99, 102, 241, 0.5);
             --accent-indigo: #6366f1;
             --accent-cyan: #38bdf8;
             --accent-emerald: #34d399;
@@ -36,16 +36,57 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.1) 0px, transparent 50%);
-            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Canvas Interactive Network Background */
+        #neural-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.45;
         }
 
         .container {
             max-width: 1140px;
             margin: 0 auto;
             padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Top System Status Bar */
+        .system-bar {
+            background: rgba(3, 7, 18, 0.9);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0.4rem 0;
+            font-family: var(--font-code);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .system-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sys-status {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .sys-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--accent-emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-emerald);
         }
 
         /* Glass Header */
@@ -53,7 +94,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(3, 7, 18, 0.8);
+            background: rgba(3, 7, 18, 0.85);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-subtle);
@@ -99,7 +140,7 @@
             color: #fff;
         }
 
-        /* Interactive Hero Section */
+        /* Hero Section */
         .hero {
             padding: 3.5rem 0 2rem;
         }
@@ -112,7 +153,7 @@
         }
 
         .hero-content h2 {
-            font-size: 2.8rem;
+            font-size: 2.9rem;
             font-weight: 800;
             line-height: 1.15;
             letter-spacing: -0.03em;
@@ -140,22 +181,15 @@
             margin-bottom: 1.2rem;
         }
 
-        .status-badge .dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent-emerald);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-emerald);
-        }
-
         /* Interactive Terminal Card */
         .terminal-card {
             background: #090d16;
             border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
             font-family: var(--font-code);
+            position: relative;
         }
 
         .terminal-header {
@@ -249,7 +283,7 @@
             background: var(--accent-indigo);
             color: #fff;
             border-color: var(--accent-indigo);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
         }
 
         /* Projects Grid */
@@ -269,13 +303,15 @@
             justify-content: space-between;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
         }
 
         .project-card:hover {
             border-color: var(--border-accent);
             transform: translateY(-6px);
             background: var(--card-hover);
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8);
         }
 
         .project-card h3 {
@@ -317,8 +353,8 @@
         .tag {
             font-family: var(--font-code);
             font-size: 0.75rem;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.25);
             color: #a5b4fc;
             padding: 0.25rem 0.6rem;
             border-radius: 6px;
@@ -340,16 +376,16 @@
             align-items: center;
             gap: 0.3rem;
             transition: all 0.2s ease;
-            padding: 0.4rem 0.8rem;
+            padding: 0.4rem 0.80rem;
             border-radius: 8px;
             background: rgba(56, 189, 248, 0.08);
             border: 1px solid rgba(56, 189, 248, 0.2);
         }
 
         .btn-link:hover {
-            background: rgba(56, 189, 248, 0.2);
+            background: rgba(56, 189, 248, 0.25);
             color: #fff;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
         }
 
         .btn-link.live-btn {
@@ -359,7 +395,7 @@
         }
 
         .btn-link.live-btn:hover {
-            background: rgba(52, 211, 153, 0.2);
+            background: rgba(52, 211, 153, 0.25);
             color: #fff;
         }
 
@@ -387,9 +423,10 @@
         }
 
         .copy-btn:hover {
-            background: rgba(99, 102, 241, 0.15);
+            background: rgba(99, 102, 241, 0.18);
             border-color: var(--border-accent);
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
         }
 
         /* Toast Popup */
@@ -435,6 +472,20 @@
 </head>
 <body>
 
+    <!-- Canvas Network Background -->
+    <canvas id="neural-canvas"></canvas>
+
+    <!-- Top System Live Bar -->
+    <div class="system-bar">
+        <div class="container">
+            <div class="sys-status">
+                <span class="sys-dot"></span> SYSTEM: ONLINE | IIT JODHPUR AI NODE
+            </div>
+            <div>PING: <span id="ping-val">18ms</span> | REGION: IN-WEST</div>
+        </div>
+    </div>
+
+    <!-- Glass Header -->
     <header>
         <div class="container">
             <div class="brand">
@@ -450,7 +501,7 @@
     </header>
 
     <div class="container">
-        <!-- Interactive Hero Section with Embedded CLI -->
+        <!-- Interactive Hero Section -->
         <section class="hero">
             <div class="hero-grid">
                 <div class="hero-content">
@@ -458,10 +509,10 @@
                         <span class="dot"></span> Available for AI / ML Internships (2026)
                     </div>
                     <h2>Engineered for Production AI & Multi-Agent Workflows</h2>
-                    <p>I build production-grade agentic pipelines (LangGraph), decoupled RAG backends (FastAPI/Qdrant), and industrial vision models[cite: 2]. Tested for performance and high reliability.</p>
+                    <p>I build stateful agentic pipelines (LangGraph), decoupled vector backends (FastAPI/Qdrant), and industrial vision models[cite: 2]. High-reliability code backed by benchmarks.</p>
                     
-                    <div class="contact-group">
-                        <button class="copy-btn" onclick="copyToClipboard('prashantcsuthar@gmail.com', 'Email copied!')">📧 prashantcsuthar@gmail.com</button>
+                    <div class="contact-group" id="contact">
+                        <button class="copy-btn" onclick="copyToClipboard('prashantcsuthar@gmail.com', 'Email copied to clipboard!')">📧 prashantcsuthar@gmail.com</button>
                         <a href="https://github.com/prashantcsuthar-cmd" target="_blank" class="copy-btn" style="text-decoration:none;">💻 GitHub</a>
                         <a href="https://linkedin.com/in/prashanth-suthar-432965370" target="_blank" class="copy-btn" style="text-decoration:none;">💼 LinkedIn</a>
                     </div>
@@ -489,7 +540,7 @@
             </div>
         </section>
 
-        <!-- Interactive Filter & Projects Section -->
+        <!-- Projects Section -->
         <section id="projects" style="padding-top: 3rem;">
             <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem;">🚀 Production AI Projects</h2>
             
@@ -508,7 +559,7 @@
                         <h3>AgentOS (Autonomous Research Engine)</h3>
                         <ul>
                             <li>Architected stateful multi-agent workflows using <strong>LangGraph</strong> & <strong>Gemini</strong> for async scraping & report generation, cutting research time by <strong>>70%</strong>.</li>
-                            <li>Integrated automated Judge LLM evaluation using <strong>Pydantic</strong> to audit groundedness and trigger self-correction routing loops.</li>
+                            <li>Integrated automated Judge LLM evaluation using <strong>Pydantic</strong> to audit groundedness and trigger self-correction loops.</li>
                             <li>Tavily live search integration with Human-in-the-Loop interrupts on Streamlit Cloud.</li>
                         </ul>
                     </div>
@@ -530,7 +581,7 @@
                     <div>
                         <h3>Knowledge Engine (Production RAG)</h3>
                         <ul>
-                            <li>Built a decoupled RAG backend using <strong>FastAPI</strong> & <strong>Streamlit</strong> to vector-index 250+ page PDFs with page-level citation precision.</li>
+                            <li>Built a decoupled RAG backend using <strong>FastAPI</strong> & <strong>Streamlit</strong> to vector-index 250+ page PDFs with page-level citations.</li>
                             <li>Optimized retrieval via <strong>LlamaIndex</strong> & <strong>Qdrant</strong>, slashing search latency from <strong>4.2s to &lt;1.2s</strong>.</li>
                         </ul>
                     </div>
@@ -594,11 +645,76 @@
 
     <footer>
         <div class="container">
-            <p>© 2026 Prashanth C. Engineered with interactive terminal & glassmorphism.</p>
+            <p>© 2026 Prashanth C. Designed for high-impact AI Engineering roles.</p>
         </div>
     </footer>
 
     <script>
+        // Interactive Canvas Network Background Animation
+        const canvas = document.getElementById('neural-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = 1.8;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = '#6366f1';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 45; i++) particles.push(new Particle());
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 130) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(99, 102, 241, ${1 - dist / 130})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+        animateCanvas();
+
+        // Simulated Ping Ticker
+        setInterval(() => {
+            const ping = Math.floor(Math.random() * 8) + 14;
+            document.getElementById('ping-val').innerText = ping + 'ms';
+        }, 3000);
+
         // Interactive Terminal Logic
         const termInput = document.getElementById('term-input');
         const termBody = document.getElementById('term-body');
@@ -608,20 +724,18 @@
                 const cmd = this.value.trim().toLowerCase();
                 this.value = '';
 
-                // Create Command Echo
                 const echoLine = document.createElement('div');
                 echoLine.className = 'term-line';
                 echoLine.innerHTML = `<span class="term-prompt">❯</span> <span class="term-cmd">${cmd}</span>`;
                 termBody.insertBefore(echoLine, termInput.parentElement);
 
-                // Command Logic
                 let response = '';
                 if (cmd === 'help') {
-                    response = 'Available commands: <span class="term-cmd">skills</span>, <span class="term-cmd">agentos</span>, <span class="term-cmd">education</span>, <span class="term-cmd">clear</span>';
+                    response = 'Commands: <span class="term-cmd">skills</span>, <span class="term-cmd">agentos</span>, <span class="term-cmd">education</span>, <span class="term-cmd">clear</span>';
                 } else if (cmd === 'skills') {
                     response = 'Stack: LangGraph, FastAPI, Qdrant, LlamaIndex, PyTorch, Gemini API, OpenCV[cite: 2].';
                 } else if (cmd === 'agentos') {
-                    response = 'AgentOS: Multi-agent stateful research orchestrator with Live Search & HITL loops.';
+                    response = 'AgentOS: Multi-agent stateful research engine with live web search.';
                 } else if (cmd === 'education') {
                     response = 'IIT Jodhpur (BS in Applied AI & Data Science) | Harvard CS50 AI[cite: 2].';
                 } else if (cmd === 'clear') {
